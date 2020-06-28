@@ -1,0 +1,23 @@
+{
+  "name": "Projekt_Police_Killings",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schroederarthur/Projekt_Police_Killings.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/schroederarthur/Projekt_Police_Killings/issues"
+  },
+  "homepage": "https://github.com/schroederarthur/Projekt_Police_Killings#readme",
+  "dependencies": {
+    "jest": "^26.0.1"
+  }
+}

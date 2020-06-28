@@ -16,7 +16,11 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
+<<<<<<< HEAD
           hallo World
+=======
+          Hello World
+>>>>>>> 2a3a347d16311f5f7d0a7ea107ff92afae6d1afe
         </a>
       </header>
     </div>

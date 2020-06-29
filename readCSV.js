@@ -1,20 +1,61 @@
 var fs = require('fs');
 
-try {  
-    var data = fs.readFileSync('police_killings.csv', 'utf8');
-    console.log(data.toString());    
-} catch(e) {
-    console.log('Error:', e.stack);
+var dataName = [];
+var dataAge = [];
+var dataGender= [];
+var dataRace = [];
+var dataMonth = [];
+var dataCause = [];
+var dataArmed = [];
+
+
+function getData(){
+ 
+    var data = fs.readFileSync("police_killings.csv", "utf8");
+    // console.log(data.toString());    
+
+
+    const rows = data.split("\n");
+    rows.slice(1,rows.length);
+    rows.forEach(row => {
+    const victimData = row.split(",");
+    
+    const name = victimData[0];
+    dataName.push(name);
+    
+    const age = victimData[1];
+    dataAge.push(age);
+
+    const gender = victimData[2];
+    dataGender.push(gender);
+
+    const race = victimData[3];
+    dataRace.push(race);
+
+    const month = victimData[4];
+    dataMonth.push(month);
+
+    const cause = victimData[19];
+    dataCause.push(cause);
+
+    const armed = victimData[20];
+    dataArmed.push(armed);
+
+    // console.log(name, gender);
+})
+}
+getData();
+
+
+
+// console.log(dataArmed);
+
+function getVictimData(victimIndex){
+    const i = victimIndex;
+    console.log(dataName[i] + "\nName: " + dataAge[i] + "\nGender: " + dataGender[i] + "\nRace: "+ dataRace[i] + "\nDied in: "+ dataMonth[i] + "\nCause of death: "+ dataCause[i] +"\nArmed: "+ dataArmed[i] + "\n");
 }
 
-const rows = data.split("\n").slice(1);
-rows.forEach(elt => {
-    const row = elt.split(",");
-    const name = row[0];
-    const gender = row[2];
-})
 
-console.log(gender);
-
+getVictimData(2);
 
 // console.log(data);

@@ -15,9 +15,8 @@ function getData(){
     // console.log(data.toString());    
 
 
-    const rows = data.split("\n");
-    rows.slice(1,rows.length);
-    rows.forEach(row => {
+    const lines = data.split("\n");
+    lines.slice(1,lines.length).forEach(row => {
     const victimData = row.split(",");
     
     const name = victimData[0];
@@ -48,7 +47,7 @@ getData();
 
 
 
-// console.log(dataArmed);
+console.log(dataArmed);
 
 function getVictimData(victimIndex){
     const i = victimIndex;

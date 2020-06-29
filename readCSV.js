@@ -50,11 +50,11 @@ getData();
 console.log(dataArmed);
 
 function getVictimData(victimIndex){
-    const i = victimIndex;
-    console.log(dataName[i] + "\nName: " + dataAge[i] + "\nGender: " + dataGender[i] + "\nRace: "+ dataRace[i] + "\nDied in: "+ dataMonth[i] + "\nCause of death: "+ dataCause[i] +"\nArmed: "+ dataArmed[i] + "\n");
+    const i = victimIndex - 1;
+    console.log("\nName: " + dataName[i] + "\nAge: " + dataAge[i] + "\nGender: " + dataGender[i] + "\nRace: "+ dataRace[i] + "\nDied in: "+ dataMonth[i] + "\nCause of death: "+ dataCause[i] +"\nArmed: "+ dataArmed[i] + "\n");
 }
 
 
-getVictimData(2);
+getVictimData(11);
 
 // console.log(data);

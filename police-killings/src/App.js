@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Chart from './components/chart.js'
 
-function App() {
+class App extends Component {
+  render(){
   return (
     <div className="App">
       <header className="App-header">
@@ -16,11 +18,12 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Hello World :-)
+          <Chart />
         </a>
       </header>
     </div>
   );
+}
 }
 
 export default App;

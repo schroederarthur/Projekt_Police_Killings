@@ -2,6 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { PoliceKillingsProvider } from './police-killings-context'
+import Dummy from './Dummy';
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +21,9 @@ function App() {
         >
           Hello World :-)
         </a>
+        <PoliceKillingsProvider>
+          <Dummy/>
+        </PoliceKillingsProvider>
       </header>
     </div>
   );

@@ -1,19 +1,17 @@
 import { readFileSync } from 'fs'
-import { loadPoliceData } from './'
+import PoliceKillingsData from './load-police-killings-data2'
 
-describe('police-context', () => {
-    describe('loadPoliceData', () => {
-        it('should provide police-killings.csv as json promise', async() => {
-            const csvContent = readFileSync(__dirname + '/../../public/police_killings.csv', 'utf8')
-            const rows = csvContent.split('\r')
-            const labels = rows[0].split(',')
-            fetch.mockResponseOnce(csvContent)
+describe('loadPoliceKillingsData', () => {
+    it('should provide police_killings.csv as json promise', async () => {
+        const csvContent = readFileSync(__dirname +'/../../public/police_killings.csv', 'utf8');
+        const rows = csvContent.split('\r')
+        const labels = rows[0].split(',')
+        fetch.mockResponseOnce(csvContent)
 
-            const data = await loadPoliceData();
-            expect(data.length).toEqual(rows.length-1)
-
-                        
-
+        const data = await loadPoliceKillingsData();
+        expect(data.length).toEqual(rows.length-1)
+        data.forEach((policekillings) => {
+            expect(Object.keys(policekillings)).toEqual(labels)
         })
     })
-}) 
+})

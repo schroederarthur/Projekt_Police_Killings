@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Bar, Line, Pie } from 'react-chartjs-2';
 
-
 import Papa from 'papaparse';
 import '../police_killings.csv';
 
-//import { csv } from 'd3';
+import '../readCsv.js';
+
+import { csv } from 'd3';
 
 
 
@@ -26,36 +27,21 @@ class Chart extends Component {
 
     render() {
 
+    let dataArray ;
+    csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/police-killings/police_killings.csv",function(res){return res}).then(function(d){
+        dataArray = d;
+        console.log(typeof(d));
+        console.log(dataArray);
+        
+        dataArray.forEach(element => {
+            console.log(element['month']);
+        });
 
-        /*let dataArray;
-        csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/police-killings/police_killings.csv",function(res){
-            dataArray = res;
-            console.log(dataArray);   
-        })
-    */
+        dataArray.forEach(element => {
+            console.log(element['age']);
+        });
 
-
-       async function GetFile(be) {
-            const file = Papa.parse(await fetchCsv());
-            console.log(file);
-            return file;
-        }
-
-        async function fetchCsv() {
-            const response = await fetch('../police_killings.csv');
-            const reader = response.body.getReader();
-            const result = await reader.read();
-            const decoder = new TextDecoder('utf-8');
-            const csv = await decoder.decode(result.value);
-            console.log('csv', csv);
-            return csv;
-        }
-
-
-
-
- 
-
+    });
 
         return (
             <div className="chart">
@@ -66,15 +52,16 @@ class Chart extends Component {
                             display: this.props.displayTitle,
                             text: 'Police Killings ',
                             fontSize: 25
-                        },
-                        legend: {
+                        }, 
+                        /*legend: {
                             display: this.props.displayLegend,
                             position: this.props.legendPosition
-                        }
+                        }*/
                     }}
                 />
             </div>
         )
+
     }
 }
 

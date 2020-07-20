@@ -1,82 +1,23 @@
-/* var fs = require('fs');
-
-var dataName = [];
-var dataAge = [];
-var dataGender= [];
-var dataRace = [];
-var dataMonth = [];
-var dataCause = [];
-var dataArmed = [];
-
-
-function getData(){
- 
-    var data = fs.readFileSync("police_killings.csv", "utf8");
-    // console.log(data.toString());    
-
-
-    const lines = data.split("\n");
-    lines.slice(1,lines.length).forEach(row => {
-    const victimData = row.split(",");
-    
-    const name = victimData[0];
-    dataName.push(name);
-    
-    const age = victimData[1];
-    dataAge.push(age);
-
-    const gender = victimData[2];
-    dataGender.push(gender);
-
-    const race = victimData[3];
-    dataRace.push(race);
-
-    const month = victimData[4];
-    dataMonth.push(month);
-
-    const cause = victimData[19];
-    dataCause.push(cause);
-
-    const armed = victimData[20];
-    dataArmed.push(armed);
-
-    // console.log(name, gender);
-})
-}
-getData();
+/*import React from 'react';
+import './police_killings.csv'
+import Papa from 'papaparse';
 
 
 
-// console.log(dataArmed);
 
-function getVictimData(victimIndex){
-    const i = victimIndex - 1;
-    console.log("\nName: " + dataName[i] + "\nAge: " + dataAge[i] + "\nGender: " + dataGender[i] + "\nRace: "+ dataRace[i] + "\nDied in: "+ dataMonth[i] + "\nCause of death: "+ dataCause[i] +"\nArmed: "+ dataArmed[i] + "\n");
+async function GetFile(be) {
+    const file = Papa.parse(await fetchCsv());
+    console.log(file);
+    return file;
 }
 
-
-// getVictimData(11);
-
-// console.log(data);
-
-// export {dataName};
-// export {dataAge};
-// export {dataGender};
-// export {dataRace};
-// export {dataMonth};
-// export {dataCause};
-// export {dataArmed};
- 
-
-module.exports = {
-
-dataName,
-dataAge,
-dataGender,
-dataRace, 
-dataMonth,
-dataCause,
-dataArmed,
+async function fetchCsv() {
+    const response = await fetch('./police_killings.csv');
+    const reader = response.body.getReader();
+    const result = await reader.read();
+    const decoder = new TextDecoder('utf-8');
+    const csv = await decoder.decode(result.value);
+    console.log('csv', csv);
+    return csv;
 }
-
 */

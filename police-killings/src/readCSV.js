@@ -1,4 +1,4 @@
-var fs = require('fs');
+/* var fs = require('fs');
 
 var dataName = [];
 var dataAge = [];
@@ -78,3 +78,5 @@ dataMonth,
 dataCause,
 dataArmed,
 }
+
+*/

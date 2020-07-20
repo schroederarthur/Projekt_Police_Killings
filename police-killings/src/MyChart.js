@@ -1,18 +1,21 @@
-import React, { useContext } from 'react'
-import { Chart } from 'react-charts'
+import React, { useContext, useEffect, useState } from 'react'
+//import { Chart } from 'react-charts'
 import PoliceKillingsContext from './police-killings-context'
+import { Bar, Line, Pie } from 'react-chartjs-2';
+import parse from 'csv-parse/lib/sync'
 
-export default function MyChart({ }) {
+function MyChart() {
 
+    const test = parse(`name,age,gender,raceethnicity,month,day,year,streetaddress,city,state,latitude,longitude,state_fp,county_fp,tract_ce,geo_id,county_id,namelsad,lawenforcementagency,cause,armed,pop,share_white,share_black,share_hispanic,p_income,h_income,county_income,comp_income,county_bucket,nat_bucket,pov,urate,college
+        Adonte Washington,16,Male,Black,February,23,2015,Clearview Ln,Millbrook,AL,32.529577,-86.362829,1,51,30902,1051030902,1051,Census Tract 309.02,Millbrook Police Department,Gunshot,No,3779,60.5,30.5,5.6,28375,51367,54766,0.937935946,3,3,14.1,0.097686375,0.168509509`)
+    // const [PoliceKillings] = useContext(PoliceKillingsContext)
+    const [PoliceKillings] = [test]
 
-    const PoliceKillings = useContext(PoliceKillingsContext)
-
-   
 
 
     const months = PoliceKillings.map((p) => p.month)
     //const years = PoliceKillings.map((y) => y.year)
-    
+
     const january = months.filter((m) => m === 'january').length
     const february = months.filter((m) => m === 'february').length
     const march = months.filter((m) => m === 'march').length
@@ -29,116 +32,25 @@ export default function MyChart({ }) {
     const year = [january, february, march, april, may, june, july, august, september, october, november, december]
 
 
+
+    const data = {
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [
+                {
+                    label: "victims per month",
+                    data: year,
+                    backgroundColor: "rgba(75, 192, 192,0.6)"
+                }
+            ]
+        }
+
+    }
+     return <Line data={data} />
   
-    
-        
+  
+    //return <h1>test</h1>
+}
 
-    const data = React.useMemo(
-        () => [
-            {
-                label: 'Series 1',
-                data: year
-            },
-            {
-                label: 'mean',
-                data: [
-                    [50, 10]
-                ]
-            }
-        ],
-        [year]
-    )
 
-    const series = React.useMemo(
-        () => {
-            return {
-                type: 'bar'
-            }
-        }, []
-    )
-    
-
-    const axes = React.useMemo(
-        () => [
-            { primary: true, type: 'linear', position: 'bottom' },
-            { type: 'linear', position: 'left' },
-        ],
-        []
-    )
-    const lineChart = (
-        // A react-chart hyper-responsively and continuously fills the available
-        // space of its parent element automatically
-        <div
-            style={{
-                width: '800px',
-                height: '600px',
-            }}
-        >
-            <Chart data={data} series={series} axes={axes} />
-        </div>
-    )
-    return lineChart
-};
-
-    /*const [PoliceKillings] = useContext(PoliceKillingsContext)
-    const age = PoliceKillings
-        .map((PoliceKillingsData) => PoliceKillingsData.age)
-        .map((PoliceKillingsData) => parseInt(PoliceKillingsData, 10))
-        .sort((a, b) => a - b)
-        .reduce((result, value) => {
-            const category = Math.floor(value/100000000)
-            console.log('$', value, category, result[category])
-            result[category] += 1;
-            return result;
-        }, [...Array(80)].map(() => 0))
-        .map((value, index) => [index, value])
-    
-    console.log('##########', age)
-    const mean = (array) => array.reduce((sum, val) => {return sum + val}, 0)
-    console.log('0000000 ', mean(age))
-    const data = React.useMemo(
-        () => [
-            {
-                label: 'Series 1',
-                data: age
-            },
-            {
-                label: 'mean',
-                data: [
-                    [50, 10]
-                ]
-            }
-        ],
-        [age]
-    )
-
-    const series = React.useMemo(
-        () => {
-            return {
-                type: 'bar'
-            }
-        }, []
-    )
-
-    const axes = React.useMemo(
-        () => [
-            { primary: true, type: 'linear', position: 'bottom' },
-            { type: 'linear', position: 'left' },
-        ],
-        []
-    )
-
-    const lineChart = (
-        // A react-chart hyper-responsively and continuously fills the available
-        // space of its parent element automatically
-        <div
-            style={{
-                width: '800px',
-                height: '600px',
-            }}
-        >
-            <Chart data={data} series={series} axes={axes} />
-        </div>
-    )
-    return lineChart
-}*/
+export default MyChart();

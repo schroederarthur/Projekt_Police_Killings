@@ -1,4 +1,4 @@
-/* var fs = require('fs');
+var fs = require('fs');
 
 var dataName = [];
 var dataAge = [];
@@ -40,14 +40,14 @@ function getData(){
     const armed = victimData[20];
     dataArmed.push(armed);
 
-    // console.log(name, gender);
+     console.log(name, gender);
 })
 }
 getData();
 
 
 
-// console.log(dataArmed);
+ console.log(dataArmed);
 
 function getVictimData(victimIndex){
     const i = victimIndex - 1;
@@ -79,4 +79,3 @@ dataCause,
 dataArmed,
 }
 
-*/

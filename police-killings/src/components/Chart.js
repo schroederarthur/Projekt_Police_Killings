@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Bar, Line, Pie } from 'react-chartjs-2';
 
 
-import Papa from 'papaparse';
+//import Papa from 'papaparse';
 import '../police_killings.csv';
 
 //import { csv } from 'd3';
@@ -33,14 +33,11 @@ class Chart extends Component {
             console.log(dataArray);   
         })
     */
-
-
-       async function GetFile(be) {
+      /*async function GetFile(be) {
             const file = Papa.parse(await fetchCsv());
             console.log(file);
             return file;
-        }
-
+        }*/
         async function fetchCsv() {
             const response = await fetch('../police_killings.csv');
             const reader = response.body.getReader();
@@ -50,12 +47,6 @@ class Chart extends Component {
             console.log('csv', csv);
             return csv;
         }
-
-
-
-
- 
-
 
         return (
             <div className="chart">

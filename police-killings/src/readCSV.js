@@ -72,7 +72,7 @@ var mapMonth = {};
 var mapAge = {};
 var mapGender = {};
 var mapCause = {};
-var mapArmed = {};
+var mapRace = {};
 
 
 function countMonths(){
@@ -106,17 +106,28 @@ function countCause(){
               
             }
 
+ function countRace(){
+        
+              for (let i = 0; i < dataRace.length; i++) {
+                  let item = dataRace[i];
+                  mapRace[item] = (mapRace[item] + 1) || 1;
+                }
+                return mapRace;
+                
+              }
+
 countMonths();
 countGender();
 countCause();
+countRace();
 // console.log(year);
 console.log(mapMonth)
 // console.log(mapAge)
 console.log(mapGender)
 console.log(mapCause)
-console.log(mapArmed)
+console.log(mapRace)
 // console.log(mapMonth)
-
+// console.log(dataRace)
 
 module.exports = {
 

@@ -38,24 +38,25 @@ class Chart extends Component {
             console.log(file);
             return file;
         }*/
-        async function fetchCsv() {
-            const response = await fetch('../police_killings.csv');
-            const reader = response.body.getReader();
-            const result = await reader.read();
-            const decoder = new TextDecoder('utf-8');
-            const csv = await decoder.decode(result.value);
-            console.log('csv', csv);
-            return csv;
-        }
+        // async function fetchCsv() {
+        //     const response = await fetch('../police_killings.csv');
+        //     const reader = response.body.getReader();
+        //     const result = await reader.read();
+        //     const decoder = new TextDecoder('utf-8');
+        //     const csv = await decoder.decode(result.value);
+        //     console.log('csv', csv);
+        //     return csv;
+        // }
 
         return (
             <div className="chart">
                 <Bar
                     data={this.state.chartData}
-                    options={{
+                    options={
+                        {
                         title: {
                             display: this.props.displayTitle,
-                            text: 'Police Killings ',
+                            text: 'Police Killings per Month',
                             fontSize: 25
                         },
                         legend: {
@@ -66,11 +67,36 @@ class Chart extends Component {
                 />
 
                 <Pie
-                    data={this.state.chartData}
+                    data={{
+                        labels: ['Male', 'Female'],
+                        datasets:[
+                          {
+                            label:'Police Killings by Gender',
+                            data:[
+                             445,
+                             22
+                            ],
+                            backgroundColor:[
+                              'rgba(66, 135, 245, 0.6)',
+                              'rgba(245, 66, 66, 0.6)',
+                            //   'rgba(255, 206, 86, 0.6)',
+                            //   'rgba(75, 192, 192, 0.6)',
+                            //   'rgba(153, 102, 255, 0.6)',
+                            //   'rgba(255, 159, 64, 0.6)',
+                            //   'rgba(255, 99, 132, 0.6)',
+                            //   'rgba(255, 99, 132, 0.6)',
+                            //   'rgba(54, 162, 235, 0.6)',
+                            //   'rgba(255, 206, 86, 0.6)',
+                            //   'rgba(75, 192, 192, 0.6)',
+                            //   'rgba(255, 159, 64, 0.6)'
+                            ]}
+                        ]
+                    }
+                }
                     options={{
                         title: {
                             display: this.props.displayTitle,
-                            text: 'Police Killings ',
+                            text: 'Police Killings by Gender ',
                             fontSize: 25
                         },
                         legend: {

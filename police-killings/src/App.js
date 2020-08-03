@@ -24,15 +24,15 @@ class App extends Component {
   getChartData(){
     this.setState({
       chartData:{
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
         datasets:[
           {
-            label:'Police Killings',
+            label:'Amount of victims(467 Total)',
             data:[
              90,
              84,
              114,
-             86,
+             96,
              81,
              2,
              0,
@@ -45,18 +45,18 @@ class App extends Component {
              0
             ],
             backgroundColor:[
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(54, 162, 235, 0.6)',
-              'rgba(255, 206, 86, 0.6)',
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(153, 102, 255, 0.6)',
-              'rgba(255, 159, 64, 0.6)',
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(54, 162, 235, 0.6)',
-              'rgba(255, 206, 86, 0.6)',
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(255, 159, 64, 0.6)'
+              'rgba(50, 50, 50, 0.6)',
+              'rgba(50, 50, 50, 0.6)',
+              'rgba(50, 50, 50, 0.6)',
+              'rgba(50, 50, 50, 0.6)',
+              'rgba(50, 50, 50, 0.6)',
+              'rgba(50, 50, 50, 0.6)',
+              'rgba(50, 50, 50, 0.6)',
+              'rgba(50, 50, 50, 0.6)',
+              'rgba(50, 50, 50, 0.6)',
+              'rgba(50, 50, 50, 0.6)',
+              'rgba(50, 50, 50, 0.6)',
+              'rgba(50, 50, 50, 0.6)',
             ]
           }
         ]
@@ -71,7 +71,7 @@ class App extends Component {
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           {/* <h2>Welcome to React</h2> */}
         {/* </div> */}
-        <Chart chartData={this.state.chartData} location="Massachusetts" legendPosition="bottom"/>
+        <Chart chartData={this.state.chartData} legendPosition="bottom"/>
       </div>
     );
   }

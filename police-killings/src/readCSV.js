@@ -68,22 +68,54 @@ function getVictimData(victimIndex){
 // export {dataArmed};
  
 
-var map = {};
+var mapMonth = {};
+var mapAge = {};
+var mapGender = {};
+var mapCause = {};
+var mapArmed = {};
+
 
 function countMonths(){
         
       for (let i = 0; i < dataMonth.length; i++) {
           let item = dataMonth[i];
-          map[item] = (map[item] + 1) || 1;
+          mapMonth[item] = (mapMonth[item] + 1) || 1;
         }
-        return map;
+        return mapMonth;
         
       }
 
+
+function countGender(){
+        
+        for (let i = 0; i < dataGender.length; i++) {
+            let item = dataGender[i];
+            mapGender[item] = (mapGender[item] + 1) || 1;
+          }
+          return mapGender;
+          
+        }
+
+function countCause(){
+        
+            for (let i = 0; i < dataCause.length; i++) {
+                let item = dataCause[i];
+                mapCause[item] = (mapCause[item] + 1) || 1;
+              }
+              return mapCause;
+              
+            }
+
 countMonths();
+countGender();
+countCause();
 // console.log(year);
-console.log(map)
-// console.log(map)
+console.log(mapMonth)
+// console.log(mapAge)
+console.log(mapGender)
+console.log(mapCause)
+console.log(mapArmed)
+// console.log(mapMonth)
 
 
 module.exports = {

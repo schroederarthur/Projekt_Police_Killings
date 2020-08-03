@@ -19,6 +19,7 @@ class App extends Component {
   componentWillMount(){
     this.getChartData();
   }
+  
 
   getChartData(){
     this.setState({
@@ -66,10 +67,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
+        {/* <div className="App-header"> */}
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          {/* <h2>Welcome to React</h2> */}
+        {/* </div> */}
         <Chart chartData={this.state.chartData} location="Massachusetts" legendPosition="bottom"/>
       </div>
     );

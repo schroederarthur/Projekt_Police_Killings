@@ -64,6 +64,21 @@ class Chart extends Component {
                         }
                     }}
                 />
+
+                <Pie
+                    data={this.state.chartData}
+                    options={{
+                        title: {
+                            display: this.props.displayTitle,
+                            text: 'Police Killings ',
+                            fontSize: 25
+                        },
+                        legend: {
+                            display: this.props.displayLegend,
+                            position: this.props.legendPosition
+                        }
+                    }}
+                />
             </div>
         )
     }

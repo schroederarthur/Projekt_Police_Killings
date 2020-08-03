@@ -198,7 +198,7 @@ class Chart extends Component {
 <Pie
                     data={{
                         
-                        labels: ['Black', 'White', '67', 'Hispanic/Latino', 'Unknown', 'Asian/Pacific Islander', 'Native American'],
+                        labels: ['Black', 'White', 'Hispanic/Latino', 'Unknown', 'Asian/Pacific Islander', 'Native American'],
                         datasets:[
                           {
                             label:'Police Killings Cause of Death',
@@ -213,7 +213,7 @@ class Chart extends Component {
                             backgroundColor:[
                               'rgba(66, 245, 66, 0.6)',
                               'rgba(212, 66, 245, 0.6)',
-                              'rgba(245, 245, 66, 0.6)',
+                              'rgba(150, 245, 220, 0.6)',
                               'rgba(255, 133, 51, 0.6)',
                               'rgba(0, 0, 0, 0.6)',
                               'rgba(245, 245, 66, 0.6)',

@@ -68,6 +68,24 @@ function getVictimData(victimIndex){
 // export {dataArmed};
  
 
+var map = {};
+
+function countMonths(){
+        
+      for (let i = 0; i < dataMonth.length; i++) {
+          let item = dataMonth[i];
+          map[item] = (map[item] + 1) || 1;
+        }
+        return map;
+        
+      }
+
+countMonths();
+// console.log(year);
+console.log(map)
+// console.log(map)
+
+
 module.exports = {
 
 dataName,

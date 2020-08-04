@@ -20,7 +20,8 @@ class Chart extends Component {
     static defaultProps = {
         displayTitle: true,
         displayLegend: true,
-        legendPosition: 'right',
+      legendPosition: 'right',
+
     }
 
 
@@ -61,7 +62,10 @@ class Chart extends Component {
                         },
                         legend: {
                             display: this.props.displayLegend,
-                            position: this.props.legendPosition
+                          position: this.props.legendPosition,
+                          labels: {
+                            fontSize: 20,
+                          }
                         }
                     }}
                 />
@@ -116,7 +120,10 @@ class Chart extends Component {
                         },
                         legend: {
                             display: this.props.displayLegend,
-                            position: this.props.legendPosition
+                            position: this.props.legendPosition,
+                          labels: {
+                            fontSize: 20,
+                          }
                         }
                     }}
                 />
@@ -127,7 +134,7 @@ class Chart extends Component {
                         labels: ['Gunshot', 'Death in custody', 'Taser', 'Struck by vehicle', 'Unknown'],
                         datasets:[
                           {
-                            label:'Police Killings Cause of Death',
+                            label:'Police Killings Cause of Death', 
                             data:[
                              411,
                              14,
@@ -190,7 +197,10 @@ class Chart extends Component {
                         },
                         legend: {
                             display: this.props.displayLegend,
-                            position: this.props.legendPosition
+                            position: this.props.legendPosition,
+                            labels: {
+                              fontSize: 20,
+                            }
                         }
                     }}
                 />
@@ -268,7 +278,10 @@ class Chart extends Component {
                         },
                         legend: {
                             display: this.props.displayLegend,
-                            position: this.props.legendPosition
+                            position: this.props.legendPosition,
+                         labels: {
+                            fontSize: 20,
+                          }
                         }
                     }}
                 />

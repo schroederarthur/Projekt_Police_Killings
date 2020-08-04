@@ -67,11 +67,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <div className="App-header"> */}
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          {/* <h2>Welcome to React</h2> */}
-        {/* </div> */}
-        <Chart chartData={this.state.chartData} legendPosition="bottom"/>
+        <h1>Police Killings Project</h1>
+        <h2>People killed by police in the US</h2>
+        <div class= "content-wrapper">
+          <Chart chartData={this.state.chartData} legendPosition="bottom" />
+          </div>
       </div>
     );
   }

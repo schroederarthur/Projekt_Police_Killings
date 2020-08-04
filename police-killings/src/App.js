@@ -68,7 +68,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Police Killings Project</h1>
-        <h2>People killed by police in the US</h2>
+        <h2>People killed by police in the US in 2015 (January - June)</h2>
         <div class= "content-wrapper">
           <Chart chartData={this.state.chartData} legendPosition="bottom" />
           </div>

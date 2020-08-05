@@ -40,7 +40,7 @@ function getData(){
     const armed = victimData[20];
     dataArmed.push(armed);
 
-     console.log(name, gender);
+    //  console.log(name, gender);
 })
 }
 getData();
